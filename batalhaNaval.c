@@ -15,6 +15,8 @@ int main() {
     //Criando os vetores dos navios
     int navio1[3];
     int navio2[3];
+    int navio3[3];
+    int navio4[3];
 
     //Declarando as posições verticais do navio 1
     navio1[0] = 4;
@@ -22,9 +24,9 @@ int main() {
     navio1[2] = 6;
 
     //Declarando as posições horizontais do navio 2
-    navio2[0] = 2;
-    navio2[1] = 3;
-    navio2[2] = 4;
+    navio2[0] = 3;
+    navio2[1] = 4;
+    navio2[2] = 5;
     
     //Zerando todas os indices do tabuleiro
     for (int i = 0; i < 10; i++)
@@ -36,13 +38,24 @@ int main() {
         }
     }
 
-    //Adicionando os navios verticais e horizontais
+    //Posicionando os navios verticais e horizontais
     for (int k = 0; k < 3; k++)
     {
         tabuleiro[navio1[k]][5] = 3;
 
         tabuleiro[2][navio2[k]] = 3;
+        
     }
+
+    //Posicionando os navios diagonais
+    for (int k = 0; k < 3; k++)
+    {
+        tabuleiro[1 + k][k] = 3;
+        
+        tabuleiro[5 + k][(9 - k) - 1] = 3; // (9 - k) faz com que o navio seja posicionado na diagonal secundaria 
+    }
+    
+
     
     //Criando o laço de repetição para apresentar o tabuleiro
     for (int i = 0; i < 10; i++)
